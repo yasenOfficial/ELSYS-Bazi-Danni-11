@@ -1,20 +1,20 @@
 create temporary table a_table (id integer, address text); 
 insert into a_table 
 values
- (1, 'Студентски Комплекс, ул. „Росарио“ 1, 1756 София'),
- (2, 'кв. Дианабад.19 Г, 1172 София'),
- (3, '4000 Пловдив Център, ул. „Иван Вазов“ 59'),
- (4, 'ж.к. Лозенец, бул. „Джеймс Баучер“ 5, 1164 София');
+ (1, 'Г‘ГІГіГ¤ГҐГ­ГІГ±ГЄГЁ ГЉГ®Г¬ГЇГ«ГҐГЄГ±, ГіГ«. вЂћГђГ®Г±Г Г°ГЁГ®вЂњ 1, 1756 Г‘Г®ГґГЁГї'),
+ (2, 'ГЄГў. Г„ГЁГ Г­Г ГЎГ Г¤.19 Гѓ, 1172 Г‘Г®ГґГЁГї'),
+ (3, '4000 ГЏГ«Г®ГўГ¤ГЁГў Г–ГҐГ­ГІГєГ°, ГіГ«. вЂћГ€ГўГ Г­ Г‚Г Г§Г®ГўвЂњ 59'),
+ (4, 'Г¦.ГЄ. Г‹Г®Г§ГҐГ­ГҐГ¶, ГЎГіГ«. вЂћГ„Г¦ГҐГ©Г¬Г± ГЃГ ГіГ·ГҐГ°вЂњ 5, 1164 Г‘Г®ГґГЁГї');
 
 select	id, substring(address from '\y(\d{4})\y') as zipcode
 from a_table;
 
 select * from a_table
-where address ~ 'ул\.';
+where address ~ 'ГіГ«\.';
 
 select * from a_table
-where address ~ '\yул\.' -- note Y vs. У 
-   or address ~* '^КВ\..*ОФИЯ$';
+where address ~ '\yГіГ«\.' -- note Y vs. Г“ 
+   or address ~* '^ГЉГ‚\..*ГЋГ”Г€Гџ$';
 
 select * 
 from regexp_split_to_table('Hello regexp. power - at my fingertips!', '[, \.!+-]+') as rs; 
